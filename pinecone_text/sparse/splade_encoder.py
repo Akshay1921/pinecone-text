@@ -63,7 +63,7 @@ class SpladeEncoder(BaseSparseEncoder):
         self.device = device
 
         model = "naver/splade-cocondenser-ensembledistil"
-        self.tokenizer = AutoTokenizer.from_pretrained(model)
+        self.tokenizer = AutoTokenizer.from_pretrained(model,use_fast=False)
         self.model = AutoModelForMaskedLM.from_pretrained(model).to(self.device)
         self.max_seq_length = max_seq_length
 
